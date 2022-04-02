@@ -1,5 +1,6 @@
 # API_REST
 CREACIÓN DE UNA REST API con Python, Flask y MySql 
+con funciones de leerjuego, mostrar todos los juegos, eliminar juego , actualizar juego e insertar juego
 
 CREAR EL ENTORNO VIRTUAL
 

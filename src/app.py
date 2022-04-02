@@ -61,6 +61,17 @@ def Borrarjuego(idjuego):
     except Exception as ex:
         return 'Error'
 
+@app.route('/juegos/<int:idjuego>', methods=['PUT'])
+def actualizar(idjuego):
+    try:
+        cursor= conexion.connection.cursor()
+        cursor.execute("UPDATE juegos SET nombre = %s , descripcion = %s , precio = %s WHERE id = %s",(request.json['nombre'],request.json['descripcion'] , request.json['precio'],idjuego))
+        conexion.connection.commit()  #confirmamo
+        return jsonify({'mensaje': 'Juego actualizado'})
+    except Exception as ex:
+        return 'Error'
+
+
 def pagina_no_encontrada(error):
     return "<h1>Página no encontrada</h1>", 404
 

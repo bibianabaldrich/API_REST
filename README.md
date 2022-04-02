@@ -24,3 +24,4 @@ para ejecutar y probar la api ejecuramos mediante: python .\src\app.py
 
 YA podemos ingresar a la direccion del servidor local para ver la ejecucion del codigo 
 
+![image](https://user-images.githubusercontent.com/79237723/161392358-92bf2293-4818-4947-9829-decb39761422.png)

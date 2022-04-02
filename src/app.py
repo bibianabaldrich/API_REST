@@ -62,7 +62,7 @@ def Borrarjuego(idjuego):
         return 'Error'
 
 @app.route('/juegos/<int:idjuego>', methods=['PUT'])
-def actualizar(idjuego):
+def actualizarjuego(idjuego):
     try:
         cursor= conexion.connection.cursor()
         cursor.execute("UPDATE juegos SET nombre = %s , descripcion = %s , precio = %s WHERE id = %s",(request.json['nombre'],request.json['descripcion'] , request.json['precio'],idjuego))

@@ -22,9 +22,8 @@ def Mostrarjuegos():
             unjuego={'id':fila[0], 'nombre':fila[1],'descripcion':fila[2], 'precio':fila[3] }
             juegos.append(unjuego)
         return jsonify({'juegos':juegos, 'mensaje': 'juegos en la lista'})
-        
     except Exception as ex:
-        return 'Error'
+        return jsonify({'mensaje': 'Error'})
 
 @app.route('/juegos/<int:idjuego>', methods=['GET'])
 def verjuego(idjuego):
@@ -39,18 +38,17 @@ def verjuego(idjuego):
             unjuego={'id':datos[0], 'nombre':datos[1],'descripcion':datos[2], 'precio':datos[3] }
             return jsonify({'juego':unjuego, 'mensaje': 'juegos en la lista'})
     except Exception as ex:
-        return 'Error'
+        return jsonify({'mensaje': 'Error'})
 
 @app.route('/juegos', methods=['POST'])
 def insertarjuego():
     try:
         cursor= conexion.connection.cursor()
         cursor.execute("INSERT INTO juegos(id,nombre, descripcion, precio) VALUES (%s,%s, %s, %s)",(request.json['id'],request.json['nombre'],request.json['descripcion'] , request.json['precio']))
-        conexion.connection.commit()  #confirmamos 
+        conexion.connection.commit()  #confirmamo
         return jsonify({'mensaje': 'Juego Registrado'})
     except Exception as ex:
         return 'Error'
-    
 
 @app.route('/juegos/<int:idjuego>', methods=['DELETE'])
 def Borrarjuego(idjuego):
